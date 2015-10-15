@@ -51,11 +51,7 @@ public class HsqlTest {
 		Session session = null;
 		SessionFactory sessionFactory = null;
 		try {	
-			Configuration configuration = cfg;
-			Properties properties = configuration.getProperties();
-			Environment.verifyProperties(properties);
-			ConfigurationHelper.resolvePlaceHolders(properties);
-			sessionFactory = configuration.buildSessionFactory();
+			sessionFactory = cfg.buildSessionFactory();
 			session = sessionFactory.openSession();
 		} finally {			
 			if(session!=null) {
